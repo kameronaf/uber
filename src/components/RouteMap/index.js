@@ -1,8 +1,22 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
 
-const HomeMap = (props) => {
+const GOOGLE_MAPS_APIKEY = 'AIzaSyAyTzROc_wrO-16oCrvH07HLDXPMT9jigI';
+
+const RouteMap = (props) => {
+
+    const origin= {
+        latitude: 37.78825,
+        longitude: -122.4324,
+    };
+
+    const destination= {
+        latitude: 37.78825,
+        longitude: -122.7324,
+    };
+
     return (
         <View style={{
             height: 300, backgroundColor: '#a0abff',
@@ -19,12 +33,13 @@ const HomeMap = (props) => {
                     longitudeDelta: 0.0121,
                 }}
             >
-                <Marker
-                    coordinate={{ latitude: 37.78825, longitude: -122.4324 }}>
-                    <Image
-                        style={{ width: 20, height: 20, resizeMode: 'contain' }}
-                        source={require('../../assets/images/voiture.jpg')} />
-                </Marker>
+            <MapViewDirections
+                origin = {origin}
+                destination = {destination}
+                apikey = {GOOGLE_MAPS_APIKEY}
+                strokeWidth= {3}
+                strokeColor= "hotpink"/>
+                
             </MapView>
         </View>
     );
@@ -32,4 +47,4 @@ const HomeMap = (props) => {
 
 
 
-export default HomeMap;
+export default RouteMap;

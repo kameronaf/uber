@@ -8,11 +8,12 @@ const DestinationSearch = (props) => {
     const [originPlace, setOriginPlace] = useState({initialState: null});
     const [destinationPlace, setDestinationPlace] = useState({initialState: null});
 
-    useEffect( {effect: () =>{
+    useEffect( () =>{
+        console.warn({data: 'useEffect is called'});
         if(originPlace && destinationPlace){
             console.warn({data: 'Redirect to results'});
         }
-    }}, {deps:[originPlace, destinationPlace]})
+    }, [originPlace, destinationPlace]);
 
     return(
         <SafeAreaView>

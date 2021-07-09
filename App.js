@@ -7,19 +7,27 @@
  */
 
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {View,Text, Stylesheet, StatusBar} from 'react-native';
 
 import HomeScreen from './src/screens/HomeScreen';
 import DestinationSearch from './src/screens/Destinationsearch';
+import Log from './src/screens/login/log';
+import styles from './src/components/HomeSearch/styles';
+import { colors } from './src/screens/login/styles';
+import SearchResults from './src/screens/SearchResults';
+import UberTypes from './src/components/UberTypes';
 
 const App: () => React$Node = () => {
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      
-      <DestinationSearch/>
-    </>
+    <View style = {styles.container}>
+      <StatusBar
+        barStyle="Light-content" 
+        backgroundColor = {colors.statusBar}
+      />
+
+      <SearchResults/>
+    </View>
   );
 };
 
